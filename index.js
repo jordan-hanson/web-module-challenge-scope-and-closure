@@ -87,15 +87,15 @@ Write a function called `inning` that returns a random number of points that a t
 // console.log(inning(), "inning test")
 // console.log(inning(), "inning test two")
 
-function inning() {
-  let newScore = Math.floor(Math.random() * 3 + 1);
-  console.log(newScore, "randome math problem")
+function inningScore() {
+  let newScore = Math.floor(Math.random() * 3);
+  // console.log(newScore, "randome math problem")
   return newScore;
 }
-inning();
+inningScore();
 /* Task 3: finalScore()
 
-Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of the game in the form of an object.
+Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and returns the final score of the game in the form of an object.
 
 For example, 
 
@@ -107,15 +107,29 @@ finalScore(inning, 9) might return:
 
 */
 
-function finalScore(/*code Here*/) {
-
-  /*Code Here*/
+function finalScore(inningScore, inning) {
+  let homeTeam = 0;
+  let awayTeam = 0;
+  for (let i = 1; i <= inning; i++) {
+    homeTeam += inningScore();
+    awayTeam += inningScore();
+    homeInningTeamScore = homeTeam
+    awayInningTeamScore = awayTeam
+    console.log(`The inning #${i} with home score as ${homeInningTeamScore} and away score as ${awayInningTeamScore}`)
+    const finalScore = {
+      "HomeTeam": homeInningTeamScore,
+      "AwayTeam": awayInningTeamScore
+    }
+    console.log(finalScore, "Final Score Results from each inning")
+  }
+  return finalScore
 
 }
+finalScore(inningScore, 9)
 
-/* Task 4: 
+/* Task 4:
 
-Create a function called `scoreboard` that accepts the following parameters: 
+Create a function called `scoreboard` that accepts the following parameters:
 
 (1) Callback function `getInningScore`
 (2) Callback function `inning`
@@ -134,8 +148,10 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+// function scoreboard(/* CODE HERE */) {
+//   /* CODE HERE */
+// }
+
+// I solved scoreboard in my final score return and included the math for the for loop.
 
 
